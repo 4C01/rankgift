@@ -1,0 +1,19 @@
+
+# You can use SKULL as material to use skull item with base64
+menu:
+  gift:
+    title: "&a赠送 Rank"
+    size: 36
+    item:
+      rank:
+        name: "&a赠送 Rank"
+        slot: 12
+        material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODRlMWM0MmYxMTM4M2I5ZGM4ZTY3ZjI4NDZmYTMxMWIxNjMyMGYyYzJlYzdlMTc1NTM4ZGJmZjFkZDk0YmI3In19fQ==
+        lore:
+          - "&7向{player}赠送 Rank"
+          - ""
+          - "&e点击确认"
+      exit:
+        name: "&c关闭"
+        material: BARRIER
+        lore: []
