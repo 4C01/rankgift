@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
+import win.trystage.rankgift.listener.RankSelect;
 
 
 import static win.trystage.rankgift.RankGift.*;
@@ -82,7 +83,7 @@ public class GiftMenu extends Menu{
         if (slot == 12) {
             player.sendMessage(ChatColor.GREEN + "你点击了赠送按钮!");
             // 打开下级菜单
-            MenuManager.openMenu(player, new RankSelectMenu(player,target));
+            MenuManager.openMenu(player, new RankSelect(player,target));
         }
     }
 
