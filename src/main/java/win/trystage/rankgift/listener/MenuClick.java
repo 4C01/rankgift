@@ -7,7 +7,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import win.trystage.rankgift.menu.GiftMenu;
 import win.trystage.rankgift.menu.Menu;
 
-public class MenuGift implements Listener {
+public class MenuClick implements Listener {
 
     @EventHandler
     public void onMenuClick(InventoryClickEvent e) {

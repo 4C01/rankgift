@@ -2,18 +2,102 @@
 # You can use SKULL as material to use skull item with base64
 menu:
   gift:
-    title: "&a赠送 Rank"
+    title: '&a赠送 Rank'
     size: 36
     item:
       rank:
-        name: "&a赠送 Rank"
+        name: '&a赠送 Rank'
         slot: 12
         material: basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODRlMWM0MmYxMTM4M2I5ZGM4ZTY3ZjI4NDZmYTMxMWIxNjMyMGYyYzJlYzdlMTc1NTM4ZGJmZjFkZDk0YmI3In19fQ==
         lore:
-          - "&7向{player}赠送 Rank"
-          - ""
-          - "&e点击确认"
+          - '&7向{player}赠送 Rank'
+          - ''
+          - '&e点击确认'
       exit:
-        name: "&c关闭"
+        name: '&c关闭'
         material: BARRIER
         lore: []
+rank:
+  # Global Settings
+  settings:
+    currency: POINTS # POINTS,ECONOMY,OTHER
+    points: "Golds" # Your currency name
+    economy: "Coins"
+    other: "Tickets"
+    command-other: "/eco take {player} {price}" # how to take currency,available placeholder: {player} {price}
+  defaults:
+    lore:
+      - ""
+      - "&e点击购买"
+  ranks:
+    vip:
+      display:
+        name: "&a[VIP]"
+        material: EMERALD
+        slot: 11
+        custom_lore:
+          - "&7VIP 特权包含："
+          - "&a✓ 专属聊天前缀"
+          - "&a✓ 特殊粒子效果"
+      economics:
+        base_price: 699
+        requires:
+          - none
+        force_require: false
+        reduce:
+          type: STATIC
+          amount: 100
+        subscription:
+          enabled: false
+          types:
+            - "MONTHLY:199"
+      actions:
+        on_purchase:
+          - "lp user {player} parent add vip"
+          - "eco take {player} {final_cost}"
+
+    mvp:
+      display:
+        name: "&b[MVP]"
+        material: DIAMOND
+        slot: 13
+        custom_lore:
+          - "&7MVP 专属特权："
+          - "&b✓ 双倍游戏奖励"
+          - "&b✓ MVP 专属皮肤"
+      economics:
+        base_price: 1299
+        requires:
+          - none
+        force_require: false
+        reduce:
+          type: PERCENTAGE
+          amount: 15
+        subscription:
+          enabled: false
+          types:
+            - "MONTHLY:199"
+      actions:
+        on_purchase:
+          - "lp user {player} permission settemp mvp {duration}"
+          - "eco take {player} {final_cost}"
+        on_renew:
+          - "broadcast &b{player} 续费了 MVP 等级！"
+
+  # 特权轨道定义
+  tracks:
+    main_track:
+      - vip
+      - mvp
+      - mvp+
+      - mvp++
+    special_track:
+      - event-pass
+      - holiday-special
+
+  # 本地化文本
+  lang:
+    cost: "&7价格: &a{cost} {currency}"
+    reduced_cost: "&7折后价: &a{final_cost} ({discount} 折扣)"
+    subscription_info: "&7订阅周期: &e{days} 天"
+    renew_notice: "&e您的 {rank} 将在 {days} 天后到期"
