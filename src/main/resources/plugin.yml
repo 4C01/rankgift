@@ -1,0 +1,5 @@
+name: RankGift
+main: win.trystage.rankgift.RankGift
+version: 1.0
+
+softdepend: [PlayerPoints,Vault]

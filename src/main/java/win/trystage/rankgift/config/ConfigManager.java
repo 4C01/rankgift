@@ -27,6 +27,10 @@ public class ConfigManager {
         config = YamlConfiguration.loadConfiguration(configFile);
     }
 
+
+
+
+
     public int getInt(String path){
         return config.getInt(path);
     }
