@@ -35,6 +35,9 @@ public class ConfigManager {
         return config.getInt(path);
     }
 
+    public List<String> getSection(String path){
+        return new ArrayList<>(config.getConfigurationSection(path).getKeys(false));
+    }
     public String getString(String path){
         return config.getString(path);
     }
@@ -46,8 +49,5 @@ public class ConfigManager {
     }
     public List<String> getStringList(String path){
         return config.getStringList(path);
-    }
-    public List<String> getSection(String path){
-        return new ArrayList<>(config.getConfigurationSection(path).getKeys(false));
     }
 }
